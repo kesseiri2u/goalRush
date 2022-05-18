@@ -2,13 +2,14 @@ var express = require('express');
 var router = express.Router();
 var con = require('./db/connector');
 
-router.get('/matchs', function(req, res, next) {
-      con.query('SELECT * FROM parties', (err, rows) => {
+router.get('/', async function(req, res, next) {
+  await con.query('SELECT * FROM parties', (err, rows) => {
       if(err) throw err;
-      res.send(rows);
+      con.release();
+      const matchs = rows;
 
-      res.render('All matchs', {
-        title: rows
+      res.render("match", {
+        match : matchs
     })
   });
 });
