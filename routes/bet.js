@@ -3,7 +3,17 @@ var router = express.Router();
 var con = require('./db/connector');
 const { v4: uuidv4 } = require('uuid');
 
-router.post("/place/:id/:result", async function (req, res) {
+router.get('/', async function(req, res, next) {
+    await con.query('SELECT * FROM bets', (err, rows) => {
+        const bets = rows;
+  
+        res.render("bet", {
+          bet : bets
+      })
+    });
+  });
+
+router.post("/parier/:id/:result", async function (req, res) {
     try {
         let team;
         switch (req.params.result) {

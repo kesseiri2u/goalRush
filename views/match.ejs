@@ -5,14 +5,14 @@
     </head>
     <body>
         <h1>Liste des match</h1>
-        <form action="https://www.google.fr/" method="get">
+        <form action="http://localhost:3000/bet/parier" method="post">
             <table>
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Domicile</th>
+                        <th>Equipe domicile</th>
                         <th>Match Null</th>
-                        <th>Exterieur</th>
+                        <th>Equipe exterieur</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,15 +22,15 @@
 
                             <td>
                                 <input type="radio" id="dom<%=i%>" name="match<%=i%>" value="1">
-                                <label for="dom"><%= match[i].domicile%> - <%= match[i].home_team_rating%></label>
+                                <label for="dom"><%= match[i].team_home%> - <%= match[i].home_team_rating%></label>
                             </td>
                             <td>
                                 <input type="radio" id="null<%=i%>" name="match<%=i%>" value="2">
-                                <label for="null">Null - <%= match[i].draft_rating%></label>
+                                <label for="null"><%= match[i].draft_rating%></label>
                             </td>
                             <td>
                                 <input type="radio" id="ext<%=i%>" name="match<%=i%>" value="3">
-                                <label for="ext"><%= match[i].exterieur%> - <%= match[i].away_team_rating%></label>
+                                <label for="ext"><%= match[i].team_away%> - <%= match[i].away_team_rating%></label>
                             </td>
                         </tr>
                     <%}%>

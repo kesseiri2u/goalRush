@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bets</title>
+    </head>
+    <body>
+        <h1>Liste des bets</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Result</th>
+                    <th>Bet</th>
+                    <th>Potential Gain</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < tickets.length; i++) { %>
+                    <tr>
+                        <td><%= tickets[i].date%></td>
+                        <td><%= tickets[i].result%></td>
+                        <td><%= tickets[i].bet%></td>
+                        <td><%= tickets[i].potentialGain%></td>
+                    </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </body>
+</html>
