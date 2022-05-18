@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var con = require('./db/connector');
 
-router.get('/matchs', function(req, res, next) {
-      con.query('SELECT * FROM parties', (err, rows) => {
+router.get('/tickets', function(req, res, next) {
+      con.query('SELECT * FROM tickets', (err, rows) => {
       if(err) throw err;
       res.send(rows);
 
