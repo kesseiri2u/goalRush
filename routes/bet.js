@@ -5,7 +5,6 @@ const { v4: uuidv4 } = require('uuid');
 
 router.get('/matchs', function(req, res, next) {
       con.query('SELECT * FROM parties', (err, rows) => {
-      if(err) throw err;
       res.send(rows);
 
       res.render('All matchs', {

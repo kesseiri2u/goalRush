@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>View Engine Demo</title>
-</head>
-<body>
-  
-  <!- For printing variable these
-      tags are used: <%= %>  -->
-  <h1> <%= match %> </h1>
-     
-  <!- For business logic these
-      tags are used: <% %> -->
-  <% if(true){ %>
-      <h4>Greetings from geeksforgeeks</h4> 
-  <% } %>
-</body>
+    <head>
+        <title>match</title>
+    </head>
+    <body>
+        <h1>Liste des match</h1>
+        <form action="https://www.google.fr/" method="get">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Domicile</th>
+                        <th>Match Null</th>
+                        <th>Exterieur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i < match.length; i++) { %>
+                        <tr id="<%=match[i].id%>">
+                            <td><%= match[i].date%></td>
+
+                            <td>
+                                <input type="radio" id="dom<%=i%>" name="match<%=i%>" value="1">
+                                <label for="dom"><%= match[i].domicile%> - <%= match[i].home_team_rating%></label>
+                            </td>
+                            <td>
+                                <input type="radio" id="null<%=i%>" name="match<%=i%>" value="2">
+                                <label for="null">Null - <%= match[i].draft_rating%></label>
+                            </td>
+                            <td>
+                                <input type="radio" id="ext<%=i%>" name="match<%=i%>" value="3">
+                                <label for="ext"><%= match[i].exterieur%> - <%= match[i].away_team_rating%></label>
+                            </td>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+            <div id="cote">
+
+            </div>
+
+            <div id="mise">
+
+            </div>
+
+            <div id="gain">
+
+            </div>
+            <p>Cote totale : </p>
+            <button>Parier</button>
+        </form>
+    </body>
 </html>
